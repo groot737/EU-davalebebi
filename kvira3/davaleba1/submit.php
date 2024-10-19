@@ -38,20 +38,20 @@ $surname = $_POST['surname'];
                 <div class="form-item">
                     <hr>
                     <?php
-                     for ($i = 0; $i < count($questions); $i++) {
-                        echo '<div class="form-item">
-                                <hr>
-                                <div class="item-child">
-                                    <p>' . $questions[$i]["question"] . '</p>
-                                    <div class="child-right">
-                                        <p>' . $questions[$i]["point"] . '</p>
-                                        <p>'.$answers[$i].'</p>
-                                        <input type="text" name="student_answer[]"  hidden=true value='.$answers[$i].'>
-                                        <input type="number" name="teacher_answer[]" max=' . $questions[$i]["point"] . ' placeholder="პასუხი">
-                                    </div>
-                                </div>
-                              </div>';
-                    }
+                    for ($i = 0; $i < count($questions); $i++) {
+                      echo '<div class="form-item">
+                        <hr>
+                        <div class="item-child">
+                        <p>' . $questions[$i]["question"] . '</p>
+                        <div class="child-right">
+                          <p>' . $questions[$i]["point"] . '</p>
+                          <p>' . $answers[$i] . '</p>
+                        <input type="text" name="student_answer[]" hidden=true value="' . htmlspecialchars($answers[$i], ENT_QUOTES) . '">
+                        <input type="number" name="teacher_answer[]" max="' . $questions[$i]["point"] . '" placeholder="პასუხი">
+                        </div>
+                       </div>
+                       </div>';
+                     }
                     ?>
                 </div>
                 <div class="form-item">
